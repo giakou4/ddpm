@@ -20,7 +20,7 @@ def parse_opt():
     args.epochs = 500
     args.batch_size = 4
     args.image_size = 64
-    args.dataset_path = r"../objects/UW-IS/LivingRoom/objects/bg"
+    args.dataset_path = r"./objects/UW-IS/LivingRoom/objects/bg"
     args.device = "cuda"
     args.lr = 3e-4
     args.num_classes = 14
