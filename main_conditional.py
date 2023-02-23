@@ -17,8 +17,8 @@ def parse_opt():
     parser = argparse.ArgumentParser()
     args = parser.parse_args()
     args.run_name = "DDPM_conditional_1"
-    args.epochs = 300
-    args.batch_size = 1
+    args.epochs = 500
+    args.batch_size = 4
     args.image_size = 64
     args.dataset_path = r"../objects/UW-IS/LivingRoom/objects/bg"
     args.device = "cuda"
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     for epoch in range(args.epochs):
         train_one_epoch(diffusion, model, ema, ema_model, criterion, optimizer, loader, device, logger)
         # Plot occasionally
-        if epoch % 100 == 0:
+        if epoch % 30 == 0:
             labels = torch.arange(10).long().to(device)
             sampled_images = diffusion.sample_conditional(model, n=len(labels), labels=labels)
             ema_sampled_images = diffusion.sample_conditional(ema_model, n=len(labels), labels=labels)
